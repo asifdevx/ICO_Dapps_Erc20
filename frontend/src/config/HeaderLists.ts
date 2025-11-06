@@ -1,27 +1,23 @@
-interface HeaderLists {
-  label: string,
-  route: string,
-  islink: boolean, 
-}
+import * as t from "@/types" ;
 
-export const HeaderLists:HeaderLists[] = [
+export const HeaderLists:t.HeaderLists[] = [
   {
-    label: "Home",
+    label: "Erosystem",
     route: "/",
     islink: true,
   },
   {
-    label: "Create",
+    label: "Respurces",
     route: "/createNFT",
     islink: true,
   },
   {
-    label: "Buy",
+    label: "Explorer",
     route: "/buy",
     islink: true,
   },
   {
-    label: "drops",
+    label: "SP",
     route: "/drops",
     islink: true,
   },

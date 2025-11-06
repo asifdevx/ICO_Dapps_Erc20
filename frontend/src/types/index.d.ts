@@ -38,5 +38,23 @@ interface InputProps {
   onBlur?:()=>void
 }
 
+// Cusom Fun
+interface MobileSideBarProps {
+  open:boolean,
+  setOpen:(open:boolean)=>void,
+  items:HeaderLists[],
+  icon?:ReactNode,
+  position:"left"| "right",
+  title:string,
+  footer?:boolean,
+}
 
 
+
+// #type : config  
+
+interface HeaderLists {
+  label: string,
+  route: string,
+  islink: boolean, 
+}

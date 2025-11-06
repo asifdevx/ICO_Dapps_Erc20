@@ -10,6 +10,7 @@ import SocketListener from '@/Layout/SocketListener';
 import { Web3Provider } from '@/context/web3model';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { ThemeProvider } from "@/Layout/themeProvider";
 
 type NextPageWithLayout = AppProps['Component'] & {
   getLayout?: (page: ReactNode) => ReactNode;
@@ -34,6 +35,8 @@ export default function App({ Component, pageProps }: AppProps) {
   // }
 
   return (
+    <ThemeProvider attribute="class" defaultTheme="system" enableSystem> 
+
     <Web3Provider>
       <Provider store={store}>
         {/* <SocketListener /> */}
@@ -41,5 +44,6 @@ export default function App({ Component, pageProps }: AppProps) {
         <ToastContainer/>
       </Provider>
     </Web3Provider>
+    </ThemeProvider>
   );
 }

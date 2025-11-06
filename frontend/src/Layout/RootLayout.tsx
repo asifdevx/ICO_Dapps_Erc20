@@ -1,3 +1,4 @@
+import Header from '@/components/HeaderComponents/Header';
 import { useRouter } from 'next/router';
 
 
@@ -6,7 +7,7 @@ const RootLayout = (props: any) => {
 
   return (
     <div className="w-full min-h-screen flex flex-col bg-nft-dark-gradient text-white">
-     
+      <Header/>
      
       <div className="mt-2 ">{props.children}</div>
  

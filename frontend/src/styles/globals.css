@@ -7,7 +7,9 @@
   padding: 0;
   box-sizing: border-box;
   scroll-behavior: smooth;
+  transition: color 0.3s ease, background-color 0.3s ease;
 }
+
 
 h1 {
   font-size: 64px;
@@ -42,6 +44,15 @@ h6 {
 }
 
 @layer utilities {
+  .mainHeader {
+    @apply sticky top-0 w-full z-40 transition-all bg-white text-black dark:bg-black dark:text-white;
+  
+  }
+  
+  .mainHeader.scrolled {
+    @apply  dark:bg-[#0f172a]/30 backdrop-blur-xl bg-white/40
+  }
+  
   .section_padding {
     @apply px-3 md:px-7 mx-auto;
   }

@@ -1,7 +1,7 @@
 import type { Config } from 'tailwindcss';
 
 const config: Config = {
-  darkMode: ['class', 'class'],
+  darkMode: ['class'],
   content: [
     './src/pages/**/*.{js,ts,jsx,tsx}',
     './src/components/**/*.{js,ts,jsx,tsx}',
@@ -142,9 +142,9 @@ const config: Config = {
         sm: 'calc(var(--radius) - 4px)',
       },
       animation: {
-        widthIncrease: 'widthIncrease 0.3s ease-in-out',
-        'spin-slow': 'spin 1.5s linear infinite',
-        fadeIn: 'fadeIn 0.4s ease-in-out',
+        marquee: "marquee 25s linear infinite",
+        progressAnimation: "progressAnimation 2s ease-out forwards",
+        slowSlideDown: "slowSlideDown 1.2s ease-out",
         trail: 'trail var(--duration) linear infinite',
       },
       keyframes: {
@@ -156,14 +156,32 @@ const config: Config = {
             width: '100%',
           },
         },
-        trail: {
-          '0%': { '--angle': '0deg' },
-          '100%': { '--angle': '360deg' },
+        marquee: {
+          "0%": { transform: "translateX(100%)" },
+          "100%": { transform: "translateX(-100%)" },
         },
-        fadeIn: {
-          '0%': { opacity: '0', transform: 'translateY(5px)' },
-          '100%': { opacity: '1', transform: 'translateY(0)' },
+        progressAnimation: {
+          "0%": { width: "0%" },
+          "100%": { width: "75%" },
         },
+        slowSlideDown: {
+          "0%": { transform: "translateY(-100%)" },
+          "15%": { transform: "translateY(-90%)" },
+          "30%": { transform: "translateY(-75%)" },
+          "50%": { transform: "translateY(-50%)" },
+          "70%": { transform: "translateY(-25%)" },
+          "85%": { transform: "translateY(-10%)" },
+          "100%": { transform: "translateY(0)" },
+        },
+        spin: {
+          "0%": { transform: "rotate(0deg)" },
+          "100%": { transform: "rotate(360deg)" },
+        },
+        "spin-reverse": {
+          "0%": { transform: "rotate(0deg)" },
+          "100%": { transform: "rotate(-360deg)" },
+        },
+    
         shimmer: {
           '100%': {
             transform: ' translateX(100%)',
@@ -174,17 +192,10 @@ const config: Config = {
         '4/2': '4 / 2',
       },
       backgroundImage: {
-        'bank-gradient': 'linear-gradient(90deg, #0179FE 0%, #4893FF 100%)',
-        'nft-dark-gradient': 'linear-gradient(135deg, #0b1a2a, #102b44, #15405c)',
-        sidebarActiveGradient: 'linear-gradient(90deg, #102b44, #15405c)',
-        connectButton: 'linear-gradient(0deg, rgba(159,149,231,1) 37%, rgba(59,181,226,1) 100%)',
-        mobileBg:
-          'linear-gradient(0deg, rgba(255,254,254,0.6015424164524421) 33%, rgba(255,255,255,0.7069408740359897) 37%)',
-        moving_button_bg: 'linear-gradient(145deg, #e2e8ec, #ffffff)',
-        hover_moving_button_bg:
-          'linear-gradient(317deg, #13fdfd 0%, rgba(19, 215, 253, 1) 50%, rgba(19, 191, 253, 1) 62.96%, #139bfd 100%)',
-        //items/owned
-        profile_bg: 'linear-gradient(135deg, #0b1a2a, #102b44, #15405c)',
+        'spct-brand-gradient': 'linear-gradient(135deg, #814DE5 0%, #00D3FF 100%)',
+        'spct-banner-gradient': 'linear-gradient(90deg, #6C1E9D 0%, #BB71E4 100%)',
+        'spct-logo-gradient': 'linear-gradient(135deg, #814DE5 0%, #00D3FF 100%)',
+       
       },
     },
     fontFamily: {

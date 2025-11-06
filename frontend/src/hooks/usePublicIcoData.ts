@@ -3,7 +3,6 @@ import { useQuery } from "@tanstack/react-query";
 
 import icoAbi  from "../ABI/Ico_Dapp.json";
 
-import { useProviderOrSigner } from "./useProviderOrSigner";
 import { bigToStr } from "@/utils/convertion";
 
 const RPC_URL = process.env.NEXT_PUBLIC_HOODI;
