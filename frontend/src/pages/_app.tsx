@@ -5,7 +5,7 @@ import RootLayout from '../Layout/RootLayout';
 
 import { useRouter } from 'next/router';
 import { Provider } from 'react-redux';
-import { store } from '@/store/store';
+import { store } from '@/reducer/store';
 import SocketListener from '@/Layout/SocketListener';
 import { Web3Provider } from '@/context/web3model';
 import { ToastContainer } from 'react-toastify';
@@ -36,7 +36,7 @@ export default function App({ Component, pageProps }: AppProps) {
   return (
     <Web3Provider>
       <Provider store={store}>
-        <SocketListener />
+        {/* <SocketListener /> */}
         {getLayout(<Page {...pageProps} />)}
         <ToastContainer/>
       </Provider>

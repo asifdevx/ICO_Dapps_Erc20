@@ -7,7 +7,7 @@ import connetdb from "./config/connectdb";
 import { graphqlHTTP } from "express-graphql";
 
 import { marketplace } from "./graphql/schemas/marketplace.schema";
-import { startNFTListener } from "./mongoDb/controllers/listener.controlers";
+
 dotenv.config();
 
 const app = express();
@@ -61,10 +61,11 @@ const start = async () => {
     httpServer.listen({ port: PORT as number, host: "0.0.0.0" }, () => {
       console.log(`Server running on ${corsOptions.origin}:${PORT}`)
     });
-    await startNFTListener();
+    // await startNFTListener();
   } catch (error) {
     console.error("Error starting server:", error);
   }
 };
 
 start();
+

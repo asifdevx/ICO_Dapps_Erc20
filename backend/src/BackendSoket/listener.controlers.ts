@@ -1,9 +1,5 @@
-
-import { createEthContract } from '../../config/bsc.service';
-import { io } from '../../index';
-
-
 import { ethers } from 'ethers';
+import {createEthContract} from "../config/bsc.service";
 
 export async function startNFTListener() {
   const contract = await createEthContract();
@@ -22,3 +18,5 @@ export async function startNFTListener() {
   // });
   
 }
+
+

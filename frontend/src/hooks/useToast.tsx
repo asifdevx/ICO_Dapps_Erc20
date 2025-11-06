@@ -28,7 +28,6 @@ type ToastParams = {
   message: string;
   options?: ToastOptions;
 };
-
 export const useToast = () => {
   const success = ({ message, options }: ToastParams) =>
     toast.success(withIcon(CheckCircle2, message, "text-green-500"), {
@@ -54,5 +53,38 @@ export const useToast = () => {
       ...options,
     });
 
-  return { success, error, info, warning };
+  // ✅ Persistent loading toast
+  const loading = ({ message, options }: ToastParams) => {
+    return toast.loading(withIcon(Info, message, "text-blue-500"), {
+      ...defaultConfig,
+      autoClose: false, // stays on screen
+      closeOnClick: false,
+      draggable: false,
+      ...options,
+    });
+  };
+
+  // ✅ Update existing toast (success/error) by toastId
+  const update = (toastId: string | number, params: { type: "success" | "error" | "info" | "warning"; message: string; options?: ToastOptions; }) => {
+    const { type, message, options } = params;
+
+    const IconMap = {
+      success: CheckCircle2,
+      error: XCircle,
+      info: Info,
+      warning: AlertTriangle,
+    };
+
+    toast.update(toastId, {
+      render: withIcon(IconMap[type], message, type === "success" ? "text-green-500" : type === "error" ? "text-red-500" : type === "info" ? "text-blue-500" : "text-yellow-500"),
+      type,
+      isLoading: false,
+      autoClose: 3000,
+      closeOnClick: true,
+      draggable: true,
+      ...options,
+    });
+  };
+
+  return { success, error, info, warning, loading, update };
 };

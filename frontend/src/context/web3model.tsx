@@ -1,4 +1,4 @@
-import { bscTestnet } from "@wagmi/core/chains";
+import { hoodi } from "@wagmi/core/chains";
 import { createConfig, createStorage, http, injected } from "@wagmi/core";
 import { walletConnect } from "wagmi/connectors";
 import { WagmiProvider } from "wagmi";
@@ -11,7 +11,7 @@ const connector = walletConnect({
   projectId,
   metadata: {
     name: "wagmi",
-    description: "Binance Smart Chain Testnet Example",
+    description: "hoodi Testnet Example",
     // url: "https://leox-multi.vercel.app",
     url: "http://192.168.1.100:3000",
 
@@ -20,12 +20,12 @@ const connector = walletConnect({
 });
 
 export const config = createConfig({
-  chains: [bscTestnet],
+  chains: [hoodi],
   storage: createStorage({
     storage: typeof window !== "undefined" ? window.localStorage : undefined,
   }),
   transports: {
-    [bscTestnet.id]: http("https://data-seed-prebsc-1-s1.binance.org:8545"),
+    [hoodi.id]: http("https://rpc.hoodi.ethpandaops.io"),
   },
   connectors: [injected(), walletConnect({ projectId }), connector]
 });

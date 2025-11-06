@@ -1,7 +1,7 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 
 import * as type from "@/types";
-import { GET_USER_INFO  } from "@/config/graphql";
+
 import { fetchGraphQL } from "@/api/graphql";
 
 
