@@ -11,10 +11,6 @@ const ICO_DAPPS = process.env.NEXT_PUBLIC_ICO_DAPPS;
 
 const fallbackProvider = new ethers.JsonRpcProvider(RPC_URL);
 
-
-
-
-
 export const usePublicIcoData = () => {
 
  return useQuery(

@@ -15,7 +15,7 @@ import { shortenAddress } from '@/utils/ShortenAddress';
 import Button from '@/components/ui/Button';
 import { useToast } from '@/hooks/useToast';
 import { WalletBalance } from './WalletBalance';
-import { useProviderOrSigner } from '@/hooks/useProviderOrSigner';
+
 
 const ConnectBtn: React.FC = () => {
   console.count('ConnectBtn');
