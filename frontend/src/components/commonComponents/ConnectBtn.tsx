@@ -14,7 +14,7 @@ import Link from 'next/link';
 import { shortenAddress } from '@/utils/ShortenAddress';
 import Button from '@/components/ui/Button';
 import { useToast } from '@/hooks/useToast';
-import { WalletBalance } from './WalletBalance';
+import { WalletBalance } from '../../hooks/WalletBalance';
 
 
 const ConnectBtn: React.FC = () => {

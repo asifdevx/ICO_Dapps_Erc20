@@ -58,3 +58,13 @@ interface HeaderLists {
   route: string,
   islink: boolean, 
 }
+
+interface contractData {
+  tokenAddr:string, symbol:string, tokenDecimals:number, tokenBalance:string, tokenPrice:string, soldAmount:string
+}
+
+// contract data  
+
+interface contractData {
+  
+}

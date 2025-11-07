@@ -3,40 +3,21 @@ import { RiCheckboxCircleFill } from 'react-icons/ri';
 import AnimatedBubbleParticles from '../ui/Animated-buble';
 import Button from '../ui/Button';
 import { motion } from 'framer-motion';
+import SaleForm from '../HeaderComponents/SaleForm';
 
 const Hero = () => {
   console.count('hero');
   return (
-    <section className="w-screen min-h-screen">
-            <motion.div
-        className="absolute inset-0 -z-10"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 2 }}
-      >
-        <motion.div
-          className="absolute w-[500px] h-[500px] bg-purple-500 rounded-full filter blur-3xl opacity-30"
-          style={{ top: "10%", left: "5%" }}
-          animate={{ x: [0, 100, -50, 0], y: [0, 50, -30, 0] }}
-          transition={{ duration: 20, repeat: Infinity, repeatType: "loop" }}
-        />
-        <motion.div
-          className="absolute w-[600px] h-[600px] bg-pink-500 rounded-full filter blur-3xl opacity-25"
-          style={{ top: "50%", left: "60%" }}
-          animate={{ x: [0, -80, 60, 0], y: [0, -40, 70, 0] }}
-          transition={{ duration: 25, repeat: Infinity, repeatType: "loop" }}
-        />
-        <motion.div
-          className="absolute w-[400px] h-[400px] bg-indigo-500 rounded-full filter blur-2xl opacity-20"
-          style={{ top: "70%", left: "20%" }}
-          animate={{ x: [0, 60, -40, 0], y: [0, 30, -50, 0] }}
-          transition={{ duration: 30, repeat: Infinity, repeatType: "loop" }}
-        />
-      </motion.div>
+    <motion.div
+      className="absolute inset-0 -z-10 w-screen min-h-screen"
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 2 }}
+    >
       {/* container  */}
       <AnimatedBubbleParticles
         maxBubbles={20}
-        className="w-full min-h-screen h-full flex flex-col md:flex-row items-center justify-center md:justify-between section_padding"
+        className="w-full min-h-screen h-full flex flex-col md:flex-row items-center justify-center md:justify-between section_padding gap-6"
       >
         {/* left side of the hero section  */}
         <aside className="flex flex-col items-center md:items-start gap-5 md:space-y-1 w-full md:w-1/2">
@@ -74,8 +55,11 @@ const Hero = () => {
             />
           </div>
         </aside>
+        <aside className="flex flex-col items-start w-full justify-start md:w-1/2">
+          <SaleForm/>
+        </aside>
       </AnimatedBubbleParticles>
-    </section>
+    </motion.div>
   );
 };
 
