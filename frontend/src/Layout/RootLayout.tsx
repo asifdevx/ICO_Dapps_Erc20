@@ -1,16 +1,19 @@
 import Header from '@/components/HeaderComponents/Header';
+import HeadLine from '@/components/HeaderComponents/HeadLine';
 import { useRouter } from 'next/router';
+import { useState } from 'react';
 
 
 const RootLayout = (props: any) => {
   const { asPath } = useRouter();
 
+  const [headlineOpen, setheadlineOpen] = useState(true);
+
   return (
-    <div className="w-full min-h-screen flex flex-col bg-nft-dark-gradient text-white">
+    <div className="w-full min-h-screen flex flex-col text-white">
+        {headlineOpen && <HeadLine Open={headlineOpen} setOpen={setheadlineOpen} />}
       <Header/>
-     
-      <div className="mt-2 ">{props.children}</div>
- 
+      <div className="overflow-x-hidden">{props.children}</div>
     </div>
   );
 };

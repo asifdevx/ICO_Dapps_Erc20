@@ -1,20 +1,22 @@
-import { usePublicIcoData } from "@/hooks/usePublicIcoData";
-import React ,{useEffect} from "react";
+import Hero from '@/components/HeroComponent/Hero';
+import { usePublicIcoData } from '@/hooks/usePublicIcoData';
+import React, { useEffect } from 'react';
 
 const index = () => {
-  const {data}= usePublicIcoData();
-  
-  useEffect(() => {
-    console.log(data)
-  
-    
-  }, [data])
-  
-  return (
-    <section className="section_padding w-full flex flex-col gap-8 ">
-      
+  const { data } = usePublicIcoData();
 
-    </section>
+  useEffect(() => {
+    console.log(data);
+  }, [data]);
+
+  return (
+    <>
+    <main className=" w-full">
+      <Hero />
+    
+    </main>
+    
+    </>
   );
 };
 

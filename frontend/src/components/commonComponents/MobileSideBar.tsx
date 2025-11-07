@@ -6,6 +6,7 @@ import { motion } from 'framer-motion';
 import type { MobileSideBarProps } from '@/types';
 import { usePathname } from 'next/navigation';
 import Image from 'next/image';
+import ConnectBtn from './ConnectBtn';
 
 const MobileSideBar: React.FC<MobileSideBarProps> = ({
   open,
@@ -16,7 +17,7 @@ const MobileSideBar: React.FC<MobileSideBarProps> = ({
   title,
   footer,
 }) => {
-  const pathname = usePathname();
+ 
 
   function toggleBtn() {
     return setOpen(!open);
@@ -50,8 +51,8 @@ const MobileSideBar: React.FC<MobileSideBarProps> = ({
             <Image
               src={'/logo.png'}
               alt="logo"
-              width={70}
-              height={70}
+              width={30}
+              height={30}
               className="cursor-pointer object-cover"
             />
             <h4 className="bg-spct-logo-gradient font-extrabold text-20 bg-clip-text text-transparent max-md:hidden">
@@ -66,7 +67,6 @@ const MobileSideBar: React.FC<MobileSideBarProps> = ({
         {/* Navigation */}
         <nav className="flex flex-col gap-4 px-6 py-6">
           {items.map((item, idx) => {
-            const isActive = pathname === item.route;
             return (
               <motion.div
                 key={idx}
@@ -76,18 +76,14 @@ const MobileSideBar: React.FC<MobileSideBarProps> = ({
                 <Link
                   href={item.route}
                   onClick={toggleBtn}
-                  className={`block text-lg font-medium rounded-md px-3 py-2 transition-all
-                    ${
-                      isActive
-                        ? 'text-white bg-gradient-to-r from-[#00ff95] to-[#00d1ff] shadow-md'
-                        : 'text-gray-300 hover:text-white hover:bg-gray-800/40'
-                    }`}
+                  className={`block text-lg font-medium rounded-md px-3 py-2 transition-all text-gray-300 hover:text-white hover:bg-gray-800/40`}
                 >
                   <p>{item.label}</p>
                 </Link>
               </motion.div>
             );
           })}
+          <ConnectBtn />
         </nav>
 
         {/* Footer */}

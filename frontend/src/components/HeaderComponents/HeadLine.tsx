@@ -9,10 +9,10 @@ type HeadLineProps = {
 const HeadLine = ({ Open, setOpen }: HeadLineProps) => {
   const handleHeadline = useCallback(() => setOpen(false), [Open]);
   return (
-    <div className="relative w-screen group">
+    <div className="relative w-screen group overflow-hidden">
       <div
         className={cn(
-          'w-screen h-14 bg-spct-banner-gradient flex items-center opacity-100 overflow-hidden',
+          'w-screen h-14 bg-spct-banner-gradient flex items-center opacity-100 ',
           !Open && 'hidden opacity-0',
         )}
       >

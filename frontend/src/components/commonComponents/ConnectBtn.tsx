@@ -102,7 +102,7 @@ const ConnectBtn: React.FC = () => {
         title={title}
         handleClick={handleConnect}
         disable={isConnecting || isReconnecting}
-        othercss="px-3 py-2 text-base md:text-lg rounded-lg"
+        othercss="px-3 py-2 text-base md:text-lg rounded-lg "
       />
 
       {/* Modal */}

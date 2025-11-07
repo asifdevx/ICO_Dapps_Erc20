@@ -10,6 +10,10 @@
   transition: color 0.3s ease, background-color 0.3s ease;
 }
 
+html,
+body {
+  overflow-x: hidden;
+}
 
 h1 {
   font-size: 64px;
@@ -45,14 +49,13 @@ h6 {
 
 @layer utilities {
   .mainHeader {
-    @apply sticky top-0 w-full z-40 transition-all bg-white text-black dark:bg-black dark:text-white;
-  
+    @apply fixed top-0 left-0 w-full z-40 transition-all duration-300 bg-white text-black dark:bg-black dark:text-white mt-10;
   }
-  
+
   .mainHeader.scrolled {
-    @apply  dark:bg-[#0f172a]/30 backdrop-blur-xl bg-white/40
+    @apply dark:bg-[#0f172a]/30 backdrop-blur-xl bg-white/40 mt-0;
   }
-  
+
   .section_padding {
     @apply px-3 md:px-7 mx-auto;
   }
@@ -60,48 +63,40 @@ h6 {
   .section_size {
     @apply max-w-xl md:max-w-5xl xl:max-w-7xl w-full mx-auto;
   }
-
-
+  .font_gradient {
+    @apply bg-spct-banner-gradient   bg-clip-text text-transparent;
+  }
+  .premium_Btn {
+    @apply px-3 py-1  rounded-full bg-purple-100  dark:bg-white/10  hover:bg-purple-200  dark:hover:bg-white/20 transition-colors duration-300  backdrop-blur-md;
+  }
 }
 
-
 @layer base {
-   
-  /* 🖤 Thin NFT-style scrollbar */
   ::-webkit-scrollbar {
     width: 6px;
   }
-  
-  /* Transparent track — background shows through */
+
   ::-webkit-scrollbar-track {
     background: transparent;
   }
-  
-  /* Gradient thumb that contrasts with black background */
+
   ::-webkit-scrollbar-thumb {
     background: linear-gradient(135deg, #222222, #444444, #555555);
     border-radius: 9999px;
-    box-shadow: 0 0 4px rgba(255, 255, 255, 0.1); /* subtle highlight for visibility */
+    box-shadow: 0 0 4px rgba(255, 255, 255);
     transition: all 0.3s ease;
   }
-  
-  /* Hover: slightly lighter to indicate interaction */
+
   ::-webkit-scrollbar-thumb:hover {
     background: linear-gradient(135deg, #333333, #555555, #666666);
-    box-shadow: 0 0 6px rgba(255, 255, 255, 0.2);
-  }
-  
-  /* Firefox fallback */
-  * {
-    scrollbar-width: thin;
-    scrollbar-color: #555555 transparent;
+    box-shadow: 0 0 6px white;
   }
 
-  
-  
-  
-  
-  
+  * {
+    scrollbar-width: thin;
+    scrollbar-color: #ff0000 transparent;
+  }
+
   :root {
     --background: 0 0% 100%;
     --foreground: 0 0% 3.9%;
@@ -156,9 +151,6 @@ h6 {
     --chart-4: 280 65% 60%;
     --chart-5: 340 75% 55%;
   }
-
-
-
 }
 
 @layer utilities {
@@ -201,9 +193,4 @@ h6 {
   .text-36 {
     @apply text-[36px] leading-[44px];
   }
-
-
 }
-
-
-
