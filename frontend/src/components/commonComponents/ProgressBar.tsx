@@ -1,16 +1,19 @@
+import { useBigMath } from '@/hooks/useBigMath';
+import { contractData } from '@/types';
+import React, { useEffect, useState } from 'react';
 
-import { contractData } from "@/types";
-import React, { useEffect, useState } from "react";
-
-const ProgressBar = ({data}:{data:contractData}) => {
+const ProgressBar = ({ data }: { data: contractData }) => {
   const [progress, setProgress] = useState(0);
- 
+  
   const tokenPrice = Number(data?.tokenPrice || 0);
-  const availableToken = Number(data?.tokenBalance || 0);
   const soldToken = Number(data?.soldAmount || 0);
-  const totalToken = availableToken + soldToken;
+  
+  const nextStage =useBigMath(data.tokenPrice,"3","multiply");
+  const totalToken =useBigMath(data.tokenBalance,data.soldAmount,"sum");
+;
 
   useEffect(() => {
+     
     if (totalToken > 0) {
       setProgress(Math.min(100, (soldToken / totalToken) * 100));
     } else {
@@ -18,17 +21,16 @@ const ProgressBar = ({data}:{data:contractData}) => {
     }
   }, [soldToken, totalToken]);
 
- 
   return (
     <>
       <div className="w-full flex items-center justify-between">
         <div className="flex flex-col items-start">
-        <p className="text-gray-500 dark:text-gray-400">Current Price</p>
+          <p className="text-gray-500 dark:text-gray-400">Current Price</p>
           <p className="font-extrabold">{tokenPrice} ETH</p>
         </div>
         <div className="flex flex-col items-end">
           <p className="text-gray-500 dark:text-gray-400">Next Stage Price</p>
-          <p className="font-extrabold">{tokenPrice * 3} ETH</p>
+          <p className="font-extrabold">{nextStage} ETH</p>
         </div>
       </div>
 

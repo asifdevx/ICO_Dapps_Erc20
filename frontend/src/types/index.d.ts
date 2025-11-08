@@ -33,7 +33,7 @@ interface InputProps {
   value?: string | number;
   position?: "left" | "right";
   handleChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
-  icon?: ReactNode | string;
+  icon?: React.ReactNode;
   onFocus?:()=>void
   onBlur?:()=>void
 }

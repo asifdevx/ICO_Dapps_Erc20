@@ -1,6 +1,6 @@
 import { useEffect, useMemo, useState } from "react";
 import { ethers } from "ethers";
-import tokenAbi from "../ABI/septum.json"
+
 import dappsAbi from "../ABI/Ico_Dapp.json";
 import { useToast } from "./useToast";
 
@@ -29,12 +29,13 @@ export function useDappContract() {
   const contract = useMemo(() => {
     if (!signer || !DAPP_ADDRESS) return null;
     try {
+           
       return new ethers.Contract(DAPP_ADDRESS, dappsAbi, signer);
     } catch (e) {
       console.error("Failed to create Dapp contract:", e);
       return null;
     }
-  }, [signer, DAPP_ADDRESS]);
+  }, [signer]);
 
   return contract;
 }

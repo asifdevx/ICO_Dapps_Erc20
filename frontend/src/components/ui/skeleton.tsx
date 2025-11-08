@@ -18,18 +18,38 @@ export function Skeleton({
   );
 }
 
-
-
-
-export function SkeletonCom() {
+const BuyTokenSkeleton = () => {
   return (
-    <div className="flex flex-col space-y-3">
-      <Skeleton className="h-[125px] w-[250px] rounded-xl" />
-      <div className="space-y-2">
-        <Skeleton className="h-4 w-[250px]" />
-        <Skeleton className="h-4 w-[200px]" />
+    <div className="w-full flex flex-col gap-4 bg-neutral-50 dark:bg-neutral-900 p-6 rounded-2xl shadow-md border border-neutral-200 dark:border-neutral-800">
+      {/* Header */}
+      <div className="flex flex-col gap-2">
+        <Skeleton className="h-4 w-32" />
+        <Skeleton className="h-8 w-3/4" />
+      </div>
+
+      {/* Input Fields */}
+      <div className="flex flex-col md:flex-row gap-4">
+        <div className="w-full space-y-2">
+          <Skeleton className="h-3 w-20" />
+          <Skeleton className="h-10 w-full rounded-lg" />
+        </div>
+        <div className="w-full space-y-2">
+          <Skeleton className="h-3 w-20" />
+          <Skeleton className="h-10 w-full rounded-lg" />
+        </div>
+      </div>
+
+      {/* Button */}
+      <Skeleton className="h-10 w-full rounded-lg" />
+
+      {/* Add Token Section */}
+      <div className="flex justify-between items-center mt-2">
+        <Skeleton className="h-4 w-24" />
+        <Skeleton className="h-6 w-24 rounded-md" />
       </div>
     </div>
   );
-}
+};
+
+export default BuyTokenSkeleton;
 

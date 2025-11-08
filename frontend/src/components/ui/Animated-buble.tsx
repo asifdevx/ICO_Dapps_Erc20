@@ -213,7 +213,7 @@ const AnimatedBubbleParticles: React.FC<AnimatedBubbleParticlesProps> = ({
       </div>
 
       {enableGooEffect && (
-        <svg className="absolute w-0 h-0 -z-10">
+        <svg className="absolute w-0 h-0 -z-20">
           <defs>
             <filter id={gooId.current}>
               <feGaussianBlur in="SourceGraphic" stdDeviation={blurStrength} result="blur" />

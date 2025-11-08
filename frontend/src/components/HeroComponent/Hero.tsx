@@ -3,32 +3,33 @@ import { RiCheckboxCircleFill } from 'react-icons/ri';
 import AnimatedBubbleParticles from '../ui/Animated-buble';
 import Button from '../ui/Button';
 import { motion } from 'framer-motion';
-import SaleForm from '../HeaderComponents/SaleForm';
+import SaleForm from './SaleForm';
+import BoxTypeText from '../commonComponents/BoxTypeText';
 
 const Hero = () => {
   console.count('hero');
   return (
-    <motion.div
-      className="absolute inset-0 -z-10 w-screen min-h-screen"
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      transition={{ duration: 2 }}
-    >
+    <>
       {/* container  */}
-      <AnimatedBubbleParticles
-        maxBubbles={20}
+      <div
+        // maxBubbles={20}
         className="w-full min-h-screen h-full flex flex-col md:flex-row items-center justify-center md:justify-between section_padding gap-6"
       >
         {/* left side of the hero section  */}
+        <motion.div
+          className="absolute inset-0 -z-10 w-screen min-h-screen"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 2 }}
+        />
+
         <aside className="flex flex-col items-center md:items-start gap-5 md:space-y-1 w-full md:w-1/2">
-          <div className="premium_Btn">
-            <p className="font_gradient text-xs font-semibold tracking-wide">PreSale Now Live</p>
-          </div>
+          <BoxTypeText title="PreSale Now Live" />
           <h4 className=" text-5xl font-extrabold font_gradient ">SPECTUM</h4>
           <h5 className="font-extrabold text-26  font_gradient ">
-            Token Sale <span className="text-black dark:text-white"> Stage 1</span>
+            Token Sale <span className="text-black dark:text-white "> Stage 1</span>
           </h5>
-          <p className="text-gray-800 dark:text-gray-200">
+          <p className="text-gray-800 dark:text-gray-200 max-w-2xl">
             {' '}
             Lorem ipsum dolor sit, amet consectetur adipisicing elit. Fugit vel voluptas sit
             voluptatum rem tenetur totam reiciendis nisi inventore dolore. Nam reprehenderit quasi
@@ -47,7 +48,7 @@ const Hero = () => {
             <Button
               title={
                 <div className="flex items-center gap-1 ">
-                  <RiCheckboxCircleFill className=" " />
+                  <RiCheckboxCircleFill className="" />
                   <p>Limited PreSale</p>
                 </div>
               }
@@ -55,11 +56,11 @@ const Hero = () => {
             />
           </div>
         </aside>
-        <aside className="flex flex-col items-start w-full justify-start md:w-1/2">
-          <SaleForm/>
+        <aside className="flex flex-col items-center md:items-start w-full justify-start md:w-1/2">
+          <SaleForm />
         </aside>
-      </AnimatedBubbleParticles>
-    </motion.div>
+      </div>
+    </>
   );
 };
 

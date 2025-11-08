@@ -13,3 +13,7 @@ editor.parameterHints.enabled
 
 in rootLayout ====banner then props.childer (itemsBanner.tsx)
 then every nav 
+
+
+toggle tap visibility
+toggle menu bar

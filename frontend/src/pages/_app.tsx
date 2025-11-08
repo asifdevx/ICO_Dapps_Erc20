@@ -4,13 +4,11 @@ import { ReactNode, useEffect, useState } from 'react';
 import RootLayout from '../Layout/RootLayout';
 
 import { useRouter } from 'next/router';
-import { Provider } from 'react-redux';
-import { store } from '@/reducer/store';
-import SocketListener from '@/Layout/SocketListener';
+
 import { Web3Provider } from '@/context/web3model';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import { ThemeProvider } from "@/Layout/themeProvider";
+import { ThemeProvider } from '@/Layout/themeProvider';
 
 type NextPageWithLayout = AppProps['Component'] & {
   getLayout?: (page: ReactNode) => ReactNode;
@@ -30,20 +28,17 @@ export default function App({ Component, pageProps }: AppProps) {
   // if (asPath.startsWith('/admin')) {
   //   getLayout = (page) => <AdminLayout>{page}</AdminLayout>;
   //  } else {
-    // fallback
-    getLayout = Page.getLayout ?? ((page) => <RootLayout>{page}</RootLayout>);
+  // fallback
+  getLayout = Page.getLayout ?? ((page) => <RootLayout>{page}</RootLayout>);
   // }
 
   return (
-    <ThemeProvider attribute="class" defaultTheme="system" enableSystem> 
-
-    <Web3Provider>
-      <Provider store={store}>
+    <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
+      <Web3Provider>
         {/* <SocketListener /> */}
         {getLayout(<Page {...pageProps} />)}
-        <ToastContainer/>
-      </Provider>
-    </Web3Provider>
+        <ToastContainer />
+      </Web3Provider>
     </ThemeProvider>
   );
 }
