@@ -11,8 +11,8 @@ const Hero = () => {
   return (
     <>
       {/* container  */}
-      <div
-        // maxBubbles={20}
+      <AnimatedBubbleParticles
+        maxBubbles={20}
         className="w-full min-h-screen h-full flex flex-col md:flex-row items-center justify-center md:justify-between section_padding gap-6"
       >
         {/* left side of the hero section  */}
@@ -59,7 +59,7 @@ const Hero = () => {
         <aside className="flex flex-col items-center md:items-start w-full justify-start md:w-1/2">
           <SaleForm />
         </aside>
-      </div>
+      </AnimatedBubbleParticles>
     </>
   );
 };

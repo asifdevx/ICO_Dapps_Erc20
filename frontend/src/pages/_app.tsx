@@ -35,7 +35,7 @@ export default function App({ Component, pageProps }: AppProps) {
   return (
     <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
       <Web3Provider>
-        {/* <SocketListener /> */}
+      
         {getLayout(<Page {...pageProps} />)}
         <ToastContainer />
       </Web3Provider>
