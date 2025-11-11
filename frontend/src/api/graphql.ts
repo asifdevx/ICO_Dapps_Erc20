@@ -1,7 +1,6 @@
 import axios from "axios";
 
-// const GRAPHQL_ENDPOINT = "https://leox-backend.onrender.com/g";
-const GRAPHQL_ENDPOINT = "http://192.168.1.100:8000/g";
+const GRAPHQL_ENDPOINT = "https://leox-backend.onrender.com/g";
 
 
 
